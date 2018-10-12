@@ -72,12 +72,14 @@ function getRandomQuote(array) {
 
 //get a random number to pull an object from the array
 //Between 0 and array.length
-var betweenNumbersUpper = array.length;
-randomNumber = Math.floor(Math.random() * betweenNumbersUpper);
-return randomNumber;
+for (var props in array) {
+var betweenNumberUpper = array.length;
+randomNumber = Math.floor(Math.random() * betweenNumberUpper);
+randomQuote = array[randomNumber];
+//use random number to pull an object from the array
+}; return randomQuote;
 
 };
-
 console.log(getRandomQuote(quotes));
 // Create the printQuote funtion and name it printQuote
 
