@@ -65,7 +65,6 @@ var quotes = [
  },
 ];
 
-
 // get random quote randomly pulls a quote & information from the quotes array
 
 function getRandomQuote(array) {
@@ -78,11 +77,16 @@ randomNumber = Math.floor(Math.random() * betweenNumberUpper);
 randomQuote = array[randomNumber];
 //use random number to pull an object from the array
 }; return randomQuote;
-
 };
-console.log(getRandomQuote(quotes));
+//console.log(getRandomQuote(quotes));
 // Create the printQuote funtion and name it printQuote
 
+
+function printQuote() {
+  getRandomQuote(quotes);
+  //connecting elements to HTML
+  document.getElementsByClassName('quote')[0].innerHTML = 'Hi There';
+};
 
 
 // This event listener will respond to "Show another quote" button clicks
