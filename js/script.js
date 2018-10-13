@@ -4,9 +4,9 @@ var randomQuote;
 var quote;
 var randomQuoteString = '';
 var arrayLength;
+var html = '';
 
 //Array of Quotes, Authors, Citations, Years, and Categories as as applicable
-
 var quotes = [
  {quote: "We can only learn to love by loving.",
   source: "Iris Murdoch",
@@ -67,12 +67,13 @@ var quotes = [
  },
 ];
 
-// get random quote randomly pulls a quote & information from the quotes array
+//randomly pulls a quote & information from the quotes array using a random number function
 
 function getRandomQuote(array) {
 
 //get a random number to pull an object from the array
 //Between 0 and array.length
+
 for (var props in array) {
 var betweenNumberUpper = array.length;
 randomNumber = Math.floor(Math.random() * betweenNumberUpper);
@@ -92,20 +93,24 @@ for (var key in quote) {
   objectArray.push(quote[key]);
 };
 
-//Creat variable for array length as a conditional
-arrayLength = objectArray.length;
-
 //code added to string that always runs
 randomQuoteString = '<p class="quote">' + objectArray[0] + '</p>';
 randomQuoteString += '<p class="source">' + objectArray[1];
 
 //if there are citations and years
-if (arrayLength === 4) {
+if (objectArray.length === 4) {
 randomQuoteString += '<span class="citation">' + objectArray[2] + "</span>";
 randomQuoteString += '<span class="year">' + objectArray[3] + "</span>";
 } else {
   randomQuoteString += '</p>';
 }
+
+//change the background color with click
+var red = Math.floor(Math.random() * 256);
+var blue =  Math.floor(Math.random() * 256);
+var green = Math.floor(Math.random() * 256);
+var rgbColor = 'rgb(' + red + ',' + green + ',' + blue + ')';
+document.body.style.backgroundColor = rgbColor;
 
 //write to HTML
 document.getElementById('quote-box').innerHTML = randomQuoteString;
