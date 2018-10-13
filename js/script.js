@@ -66,22 +66,19 @@ var quotes = [
 ];
 
 //randomly pulls a quote & information from the quotes array using a random number function
-
 function getRandomQuote(array) {
 
-//get a random number to pull an object from the array
-//Between 0 and array.length
+//get a random number to pull an object from the array - between 0 and array.length
+//use random number to pull an object from the array
 
 for (var props in array) {
 var betweenNumberUpper = array.length;
 randomNumber = Math.floor(Math.random() * betweenNumberUpper);
 randomQuote = array[randomNumber];
-//use random number to pull an object from the array
 }; return randomQuote;
 };
 
 // Create the printQuote funtion and name it printQuote
-
 function printQuote() {
 
 //create Array from Object
@@ -91,6 +88,17 @@ for (var key in quote) {
   objectArray.push(quote[key]);
 };
 
+/* quote objects are always in the following order
+quote = index 0
+source (speaker) = index 1
+citation (if applicable) index 2
+year (if applicable) index 3
+category < -- always last position in array
+*/
+
+//using a variable to find the last place in an array where the category is located
+var last = objectArray.length - 1;
+var category = '<span class="category"> (' + objectArray[last] + ') </span>';
 
 //code added to string that always runs
 randomQuoteString = '<p class="quote">' + objectArray[0] + '</p>';
@@ -100,13 +108,11 @@ randomQuoteString += '<p class="source">' + objectArray[1];
 if (objectArray.length === 5) {
 randomQuoteString += '<span class="citation">' + objectArray[2] + "</span>";
 randomQuoteString += '<span class="year">' + objectArray[3] + "</span>";
-randomQuoteString += '<span class="category"> (' + objectArray[4] + ') </span>';
+randomQuoteString += category + '</p>';
 } else {
-  randomQuoteString += '<span class="category"> (' + objectArray[2] + ') </span>';
+  randomQuoteString += category;
   randomQuoteString += '</p>';
 }
-
-
 
 //change the background color with click
 var red = Math.floor(Math.random() * 256);
