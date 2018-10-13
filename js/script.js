@@ -1,9 +1,9 @@
 //variables used
 var randomNumber;
 var randomQuote;
-var test;
 var quote;
-var h = 0;
+var randomQuoteString = '';
+var arrayLength;
 
 //Array of Quotes, Authors, Citations, Years, and Categories as as applicable
 
@@ -39,7 +39,7 @@ var quotes = [
 
  {quote: "Life was so much easier when I was doing pizza slime galaxy videos.",
   source: "Shane Dawson",
-  //citation: "Twitter",
+  citation: "Twitter",
   year: "2018",
   //category: "Humor"
 },
@@ -84,27 +84,32 @@ randomQuote = array[randomNumber];
 // Create the printQuote funtion and name it printQuote
 
 function printQuote() {
+
+//create Array from Object
 quote = getRandomQuote(quotes);
 var objectArray = [];
 for (var key in quote) {
   objectArray.push(quote[key]);
 };
-console.log(objectArray[1]);
-console.log(objectArray);
-//  objectQuote = getRandomQuote(quotes);
-/*for (var key in objectQuote) {
-console.log(key);
-console.log(objectQuote[key]);
-document.getElementsByClassName(key)[0].innerHTML = objectQuote[key];
 
+//Creat variable for array length as a conditional
+arrayLength = objectArray.length;
+
+//code added to string that always runs
+randomQuoteString = '<p class="quote">' + objectArray[0] + '</p>';
+randomQuoteString += '<p class="source">' + objectArray[1];
+
+//if there are citations and years
+if (arrayLength === 4) {
+randomQuoteString += '<span class="citation">' + objectArray[2] + "</span>";
+randomQuoteString += '<span class="year">' + objectArray[3] + "</span>";
+} else {
+  randomQuoteString += '</p>';
+}
+
+//write to HTML
+document.getElementById('quote-box').innerHTML = randomQuoteString;
 };
-*/  //connecting elements to HTML
-  //document.getElementsByClassName('quote')[0].innerHTML = 'Hi There';
-
-};
-
-
-
 
 // This event listener will respond to "Show another quote" button clicks
 // when user clicks anywhere on the button, the "printQuote" function is called
