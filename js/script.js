@@ -1,67 +1,69 @@
 //variables used
 var randomNumber;
 var randomQuote;
-
+var test;
+var quote;
+var h = 0;
 
 //Array of Quotes, Authors, Citations, Years, and Categories as as applicable
 
 var quotes = [
  {quote: "We can only learn to love by loving.",
-  speaker: "Iris Murdoch",
-  source: "O Magazine",
+  source: "Iris Murdoch",
+  citation: "O Magazine",
   year: "February 2004",
-  category: "Thought Provoking"
+  //category: "Thought Provoking"
 },
 
  {quote: "We touch other peoples lives simply by existing.",
-  speaker: "JK Rowling",
-  source: "Harvard Commencement Address",
+  source: "JK Rowling",
+  citation: "Harvard Commencement Address",
   year: "2008",
-  category: "Thought Provoking"
+  //category: "Thought Provoking"
 },
 
  {quote: "To be proud of learning is the greatest ignorance.",
-  speaker: "Jeremy Taylor",
-  category: "Thought Provoking"
+  source: "Jeremy Taylor",
+  //category: "Thought Provoking"
  },
 
  {quote: "Everything that irritates us about others can lead us to an understanding of ourselves.",
-  speaker: "Carl Jung",
-  category: "Thought Provoking"
+  source: "Carl Jung",
+  //category: "Thought Provoking"
  },
 
  {quote: "Eat a live toad the first thing in the morning and nothing worse will happen to you the rest of the day.",
-  speaker: "Unknown",
-  category: "Humor"
+  source: "Unknown",
+  //category: "Humor"
  },
 
  {quote: "Life was so much easier when I was doing pizza slime galaxy videos.",
-  speaker: "Shane Dawson",
-  source: "Twitter",
+  source: "Shane Dawson",
+  //citation: "Twitter",
   year: "2018",
-  category: "Humor"
+  //category: "Humor"
 },
 
  {quote:"You are not weird. You are not stupid. You do not need to try harder. You are not a failed version of normal. You are different, you are beautiful, and you are not alone.",
-  speaker: "Jessica McCabe",
-  source: "Failing at Normal: An ADHD Success Story",
+  source: "Jessica McCabe",
+  citation: "Failing at Normal: An ADHD Success Story",
   year: "2017",
-  category: "Inspirational"
+  //category: "Inspirational"
 },
 
  {quote:"Even if you're on the right track, you'll get run over if you just sit there.",
-  speaker: "Will Rodgers",
-  category: "Humor"
+  source: "Will Rodgers",
+  //category: "Humor"
  },
 
  {quote: "A man is a success if he gets up in the morning and gets to bed at night, and in between he does what he wants to do.",
-  speaker: "Bob Dylan",
-  category: "Thought Provoking"
+  source: "Bob Dylan",
+  //category: "Thought Provoking"
  },
 
  {quote: "I like to play blackjack. I'm not addicted to gambling, I'm addicted to sitting in a semi-circle.",
-  speaker: "Mitch Hedgeburg",
-  category: "Humor"
+  source: "Mitch Hedgeburg",
+  //category: "Humor"
  },
 ];
 
@@ -78,15 +80,30 @@ randomQuote = array[randomNumber];
 //use random number to pull an object from the array
 }; return randomQuote;
 };
-//console.log(getRandomQuote(quotes));
+
 // Create the printQuote funtion and name it printQuote
 
-
 function printQuote() {
-  getRandomQuote(quotes);
-  //connecting elements to HTML
-  document.getElementsByClassName('quote')[0].innerHTML = 'Hi There';
+quote = getRandomQuote(quotes);
+var objectArray = [];
+for (var key in quote) {
+  objectArray.push(quote[key]);
 };
+console.log(objectArray[1]);
+console.log(objectArray);
+//  objectQuote = getRandomQuote(quotes);
+/*for (var key in objectQuote) {
+console.log(key);
+console.log(objectQuote[key]);
+document.getElementsByClassName(key)[0].innerHTML = objectQuote[key];
+
+};
+*/  //connecting elements to HTML
+  //document.getElementsByClassName('quote')[0].innerHTML = 'Hi There';
+
+};
+
+
 
 
 // This event listener will respond to "Show another quote" button clicks
